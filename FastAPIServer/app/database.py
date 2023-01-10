@@ -18,3 +18,10 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+async def init_db():
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        raise e
