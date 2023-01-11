@@ -1,4 +1,4 @@
-export default function UserLogout(){
+export default function ArticleAdd(){
     
     return (
     <>

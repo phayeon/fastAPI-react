@@ -1,6 +1,17 @@
-import LoginForm from './LoginForm'
-
-export default function Login(){
+export default function UserLogin(){
     
-    return (<LoginForm/>)
+    return (
+    <>
+        <h1>로그인</h1>
+        <form action="/send-data-here" method="post">
+
+        <label htmlFor="email">email:</label>
+        <div id="email"/>
+
+        <label htmlFor="password">password:</label>
+        <div id="password"/>
+        
+        <button type="submit">Submit</button>
+        </form>
+    </>)
 }
