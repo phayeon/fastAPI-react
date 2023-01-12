@@ -13,3 +13,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - run: echo 'Hello, GitHub Actions!'
+    pwd-ls:
+      name: PWD & LS
+      runs-on: ubuntu-18.04
+      steps:
+        - name: Print working directory
+          run: pwd
+        - name: List files
+          run: ls -al
