@@ -21,8 +21,7 @@ export default function Join() {
         <button >사용자 등록</button>
         <p>버튼을 클릭하시면, 더미 사용자 100명이 등록됩니다.</p>
 
-        <form action="/send-data-here" method="post">
-
+        <form method="post">
         <label htmlFor="email">email : </label>
         <input type="text" id="email" name="email" required minLength={4} maxLength={20}/><br/>
 

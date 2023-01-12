@@ -1,13 +1,14 @@
 from datetime import datetime
-from typing import List
+from uuid import UUID
+
 import pydantic
-from app.schemas.user import User
 
 
 class Article(pydantic.BaseModel):
     art_seq: int
     title: str
     content: str
+    user_id: UUID
     create_at: datetime
     updated_at: datetime
 

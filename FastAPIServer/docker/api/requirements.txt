@@ -1,6 +1,7 @@
 fastapi
 FastAPI-SQLAlchemy==0.2.1
 mysqlclient
+pandas
 pymysql
 sqlalchemy
 sqlalchemy_utils
