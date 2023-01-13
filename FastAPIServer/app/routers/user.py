@@ -13,15 +13,16 @@ async def join(user: UserDTO, db: Session = Depends(get_db)):
     print(f" 회원가입에 진입한 시간: {currentTime()} ")
     print(f"SignUp Inform : {user}")
     result = dao.join(user, db)
-    if result =="":
+    if result == "":
         result = "failure"
     return {"data": result}
 
 
-@router.post('/{id}')
-async def login(id: str, item: UserDTO, db: Session = Depends(get_db)):
-    dao.login(id, item, db)
-    return {'data': 'Success'}
+@router.post("/login")
+async def login(user: UserDTO, db: Session = Depends(get_db)):
+    return_user = dao.login(user, db)
+    print(f"로그인 정보 : {return_user}")
+    return {"data": return_user}
 
 
 @router.put('/{id}')

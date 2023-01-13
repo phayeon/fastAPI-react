@@ -17,7 +17,6 @@ export const user = {
                 }else{
                     alert(' 결과: API 내부 join 성공  '+ JSON.stringify(response.data))
                 }
-                
                 return response
             }catch(err){
                 console.log(` ${currentTime} : userSaga 내부에서 join 실패 `)
@@ -27,7 +26,9 @@ export const user = {
         try{
             const response : AxiosResponse<any, User[]> =
             await author.post('/users/login', payload)
-            return response.data
+            alert(` 서버에서 리턴받은 값: ${JSON.stringify(response.data)}`)
+            localStorage.setItem("loginUser", JSON.stringify(response.data))
+            //return response.data
         }catch(err){
             return err;
         }

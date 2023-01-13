@@ -6,13 +6,13 @@ from app.schemas.article import Article
 
 
 class UserDTO(pydantic.BaseModel):
-    user_id: Optional[UUID]
-    email: str
-    password: str
-    user_name: str
+    user_id: Optional[str]
+    email: Optional[str]
+    password: Optional[str]
+    user_name: Optional[str]
     token: Optional[str]
-    create_at: Optional[datetime]
-    updated_at: Optional[datetime]
+    create_at: Optional[str]
+    updated_at: Optional[str]
 
     class config:
         orm_mode = True
