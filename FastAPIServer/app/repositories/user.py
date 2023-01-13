@@ -2,6 +2,7 @@ import pymysql
 from app.models.user import User
 from app.env import conn
 from sqlalchemy.orm import Session
+from app.schemas.user import UserDTO
 
 pymysql.install_as_MySQLdb()
 
@@ -13,8 +14,11 @@ def find_users_legacy():
     return cursor.fetchall()
 
 
-def join(item: User, db: Session):
-    return None
+def join(userDTO: UserDTO, db: Session)->str:
+    user = User(**userDTO.dict())
+    db.add(user)
+    db.commit()
+    return "success"
 
 
 def login(id: str, item: User, db: Session):
