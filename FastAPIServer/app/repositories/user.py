@@ -25,7 +25,7 @@ def join(userDTO: UserDTO, db: Session) -> str:
 def login(userDTO: UserDTO, db: Session):
     user = User(**userDTO.dict())
     print(user.email, user.password)
-    db_user = db.scalars(select(User).where(User.email == user.email)).first()
+    db_user = db.query(User).filter(User.email == user.email).first()
     print(f" dbUser {db_user}")
     if db_user is not None:
         if db_user.password == user.password:
