@@ -2,7 +2,10 @@ fastapi
 FastAPI-SQLAlchemy==0.2.1
 mysqlclient
 pandas
+passlib
 pymysql
+pyjwt
+shortuuid==1.0.11
 sqlalchemy
 sqlalchemy_utils
 uvicorn

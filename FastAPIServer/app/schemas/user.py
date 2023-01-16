@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import List, Optional
 from uuid import UUID
 import pydantic
-from app.schemas.article import Article
+from app.schemas.article import ArticleDTO
 
 
 class UserDTO(pydantic.BaseModel):
@@ -19,4 +19,4 @@ class UserDTO(pydantic.BaseModel):
 
 
 class UserDetail(UserDTO):
-    articles: List[Article] = []
+    articles: List[ArticleDTO] = []

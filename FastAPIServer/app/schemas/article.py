@@ -1,16 +1,17 @@
 from datetime import datetime
+from typing import Optional
 from uuid import UUID
 
 import pydantic
 
 
-class Article(pydantic.BaseModel):
-    art_seq: int
-    title: str
-    content: str
-    user_id: UUID
-    create_at: datetime
-    updated_at: datetime
+class ArticleDTO(pydantic.BaseModel):
+    art_seq: Optional[int]
+    title: Optional[str]
+    content: Optional[str]
+    user_id: Optional[UUID]
+    create_at: Optional[datetime]
+    updated_at: Optional[datetime]
 
     class config:
         orm_mode = True

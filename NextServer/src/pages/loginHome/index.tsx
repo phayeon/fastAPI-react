@@ -1,13 +1,12 @@
 import { NextPage } from "next"
 import { useEffect, useState } from "react"
-import { LoginHome } from "@/components/user"
-interface Props{ article: string }
-const LoginHomePage: NextPage<Props> = ({docs}: any) => {
-    const [loginUser, setLoginUser] = useState("")
+interface Props{ user: string }
+const LoginHomePage: NextPage<Props> = () => {
+    const [email, setemail] = useState("")
     useEffect(()=>{
-        setLoginUser(JSON.stringify(localStorage.getItem("loginUser")))
+        setemail(JSON.stringify(localStorage.getItem("data")))
     }
     )
-    return (<><div>로그인 정보 : {loginUser} </div></>)
+    return (<><div>{email}님 반갑습니다.</div></>)
 }
 export default LoginHomePage

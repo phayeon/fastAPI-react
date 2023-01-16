@@ -20,8 +20,8 @@ const LoginPage: NextPage = function(){
     }
     return (
         <>
-           <Login onChange={onChange} onSubmit={onSubmit}/>
-           <GoogleLogin/>
+            <Login onChange={onChange} onSubmit={onSubmit}/>
+            <GoogleLogin/>
         </>
             
         

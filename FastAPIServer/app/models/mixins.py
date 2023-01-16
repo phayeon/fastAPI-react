@@ -1,4 +1,4 @@
-from sqlalchemy import TIMESTAMP as Timestamp, Column, String, text
+from sqlalchemy import TIMESTAMP as Timestamp, Column, text
 
 
 class TimestampMixin(object):
