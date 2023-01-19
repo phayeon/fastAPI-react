@@ -11,6 +11,7 @@ export default function Home(){
         axios
         .get('http://localhost:8000/users/page/1')
         .then(res => {
+            const count = res.data.count
             const items = res.data.pager.items
             setCount(count)
             setList(items)

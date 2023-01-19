@@ -74,8 +74,11 @@ async def get_users_per_page(page: int, db: Session = Depends(get_db)):
     params = Params(page=page, size=5)
     result = UserCrud(db).find_all_users_per_page(page)
     page_result = paginate(sequence=result, params=params)
+    print(f" ----> page_result type is {type(page_result)}")
+    print(f" ----> page_result is {page_result}")
     count = UserCrud(db).count_all_users()
-    dc = {'pager': page_result, 'count': count}
+    print(f" count : {count}")
+    dc = {'count': count, 'pager': page_result}
     return JSONResponse(status_code=200, content=jsonable_encoder(dc))
 
 
