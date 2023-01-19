@@ -31,7 +31,7 @@ export default function AddArticle() {
             <Row><Cell>
           <label htmlFor="user_id">글쓴이</label></Cell>
           <Cell><Input type="text" 
-            placeholder="글쓴이 Email"
+            placeholder="user_id"
             id="user_id" name="user_id" required /> 
                 </Cell>
               </Row>

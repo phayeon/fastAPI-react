@@ -9,9 +9,9 @@ class ArticleDTO(pydantic.BaseModel):
     art_seq: Optional[int]
     title: Optional[str]
     content: Optional[str]
-    user_id: Optional[UUID]
-    create_at: Optional[datetime]
-    updated_at: Optional[datetime]
+    create_at: Optional[str]
+    updated_at: Optional[str]
+    user_id: Optional[str]
 
     class config:
         orm_mode = True

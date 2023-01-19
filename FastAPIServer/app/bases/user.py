@@ -10,7 +10,10 @@ class UserBase(metaclass=ABCMeta):
     def add_user(self, request_user: UserDTO) -> str: pass
 
     @abstractmethod
-    def login(self, request_user: UserDTO) -> User: pass
+    def login_user(self, request_user: UserDTO) -> User: pass
+
+    @abstractmethod
+    def logout_user(self, request_user: UserDTO) -> str: pass
 
     @abstractmethod
     def update_user(self, request_user: UserDTO) -> str: pass
@@ -26,3 +29,9 @@ class UserBase(metaclass=ABCMeta):
 
     @abstractmethod
     def find_user_by_email(self, request_user: UserDTO) -> str: pass
+
+    @abstractmethod
+    def match_token(self, request_user: UserDTO) -> bool: pass
+
+    @abstractmethod
+    def count_all_users(self) -> int: pass

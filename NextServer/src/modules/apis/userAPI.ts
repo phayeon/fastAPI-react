@@ -25,17 +25,21 @@ export const user = {
     async login(payload: User){
         try{
             const response : AxiosResponse<any, User[]> =
-            await author.post('/users/login', payload)
-            alert(` 서버에서 리턴받은 값: ${JSON.stringify(response.data.email)}`)
-            localStorage.setItem("email", JSON.stringify(response.data))
+            await author.post('http://localhost:8000/users/login', payload)
+            alert(`4 API payload is ${JSON.stringify(response.data)}`)
+            localStorage.clear()
+            const data = response.data
+            localStorage.setItem("session", data.msg)
+            alert(`스토리지에 저장된 토큰 ${localStorage.getItem("session")}`)
             return response.data
         }catch(err){
             return err;
         }
     },
-    async logout(){
+    async logout(payload: User){
         try{
-            await client.post('/users/logout')
+            const response : AxiosResponse = await client.post('/users/logout', payload)
+            return response.data
         } catch(err){
             console.log(err)
             return err;

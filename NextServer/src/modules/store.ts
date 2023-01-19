@@ -1,6 +1,6 @@
 import rootSaga from '@/modules/sagas';
-import {AnyAction, CombinedState, configureStore, combineReducers} from '@reduxjs/toolkit'
-import {createWrapper, HYDRATE, MakeStore} from 'next-redux-wrapper'
+import {AnyAction, configureStore, combineReducers} from '@reduxjs/toolkit'
+import {createWrapper, HYDRATE} from 'next-redux-wrapper'
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga'
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ const isDev = process.env.NODE_ENV ==='development'
 const sagaMiddleware = createSagaMiddleware()
 
 const combinedReducer = combineReducers({
-    user: userReducer,
+    user: userReducer
 })
 const rootReducer = (
 	state: ReturnType<typeof combinedReducer>,
@@ -29,7 +29,7 @@ const rootReducer = (
 const makeStore = () =>{
     const store = 
     configureStore({
-        reducer:{ rootReducer },
+        reducer:{ user : userReducer },
         middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({serializableCheck: false})
             .prepend(sagaMiddleware)
@@ -46,5 +46,5 @@ const store = rootReducer;
 export type AppState = ReturnType<typeof rootReducer>;
 export type AppDispatch = ReturnType<typeof store>["dispatch"];
 export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
-export const wrapper = createWrapper(makeStore)
+export const wrapper = createWrapper(makeStore, {debug: isDev})
 export default store;

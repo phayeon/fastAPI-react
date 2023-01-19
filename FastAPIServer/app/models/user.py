@@ -8,11 +8,12 @@ from sqlalchemy import Column, String
 class User(Base, TimestampMixin):
 
     __tablename__ = "users"
-    user_id = Column(String(20), primary_key=True, default=myuuid())
-    email = Column(String(100), unique=True, nullable=False)
-    password = Column(String(), nullable=False)
+
+    user_id = Column(String(30), primary_key=True, default=myuuid())
+    email = Column(String(50), unique=True, nullable=False)
+    password = Column(String(100), nullable=False)
     user_name = Column(String(20))
-    token = Column(String())
+    token = Column(String(256))
 
     articles = relationship('Article', back_populates='user')
 
@@ -24,5 +25,7 @@ class User(Base, TimestampMixin):
             f'{self.email}, \n'\
             f'{self.password}, \n'\
             f'{self.user_name}, \n'\
-            f'{self.token}, \n'
+            f'{self.token}, \n'\
+            f'{self.create_at}, \n'\
+            f'{self.updated_at}, \n'
 
