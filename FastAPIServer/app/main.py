@@ -14,6 +14,7 @@ from .env import DB_url
 from fastapi import FastAPI, APIRouter, HTTPException, Depends
 from .routers.user import router as user_router
 from .routers.article import router as article_router
+from .admin.pagination import router as pagination_router
 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 baseurl = os.path.dirname(os.path.abspath(__file__))
@@ -24,6 +25,8 @@ api_key_header = APIKeyHeader(name="Token")
 router = APIRouter()
 router.include_router(user_router, prefix="/users", tags=["users"])
 router.include_router(article_router, prefix="/articles", tags=["articles"])
+router.include_router(pagination_router, prefix="/pagination", tags=["pagination"])
+
 
 app = FastAPI()
 

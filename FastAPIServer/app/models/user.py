@@ -1,6 +1,5 @@
 from sqlalchemy.orm import relationship
 from .mixins import TimestampMixin
-from ..admin.security import myuuid
 from ..database import Base
 from sqlalchemy import Column, String
 
@@ -9,7 +8,7 @@ class User(Base, TimestampMixin):
 
     __tablename__ = "users"
 
-    user_id = Column(String(30), primary_key=True, default=myuuid())
+    user_id = Column(String(30), primary_key=True)
     email = Column(String(50), unique=True, nullable=False)
     password = Column(String(100), nullable=False)
     user_name = Column(String(20))
