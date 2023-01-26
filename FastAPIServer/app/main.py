@@ -16,6 +16,8 @@ from .routers.user import router as user_router
 from .routers.article import router as article_router
 from .admin.pagination import router as pagination_router
 
+from mangum import Mangum
+
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 baseurl = os.path.dirname(os.path.abspath(__file__))
 

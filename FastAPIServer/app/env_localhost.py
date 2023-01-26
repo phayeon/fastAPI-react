@@ -1,10 +1,10 @@
 import pymysql
 from sqlalchemy import create_engine
 
-HOSTNAME = 'mydb.c50fh2ahyeku.ap-northeast-2.rds.amazonaws.com'
+HOSTNAME = 'host.docker.internal'
 PORT = 3306
 USERNAME = 'root'
-PASSWORD = 'qwe123!!'
+PASSWORD = 'root'
 DATABASE = 'mydb'
 CHARSET = 'utf8'
 

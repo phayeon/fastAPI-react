@@ -2,6 +2,7 @@ faker
 fastapi
 fastapi-pagination
 FastAPI-SQLAlchemy==0.2.1
+mangum
 mysqlclient
 pandas
 passlib
