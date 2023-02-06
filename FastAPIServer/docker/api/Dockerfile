@@ -3,6 +3,7 @@ FROM python:3.9
 WORKDIR /app
 ADD requirements.txt .
 
+RUN pip install -U pip wheel cmake
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 8000
